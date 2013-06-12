@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2013 11:10:50 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="mx.edu.iems.inventario.model.Empleado" table="empleado" schema="public">
+        <id name="idempleado" type="int">
+            <column name="idempleado" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="puesto" class="mx.edu.iems.inventario.model.Puesto" fetch="select">
+            <column name="idpuesto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="mx.edu.iems.inventario.model.Usuario" fetch="select">
+            <column name="idusuario" not-null="true">
+                <comment>Usuario Alta</comment>
+            </column>
+        </many-to-one>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+        <property name="apaterno" type="string">
+            <column name="apaterno" length="50" not-null="true" />
+        </property>
+        <property name="amaterno" type="string">
+            <column name="amaterno" length="50" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="fechaalta" type="string">
+            <column name="fechaalta" length="10" not-null="true" />
+        </property>
+        <property name="fechanacimiento" type="string">
+            <column name="fechanacimiento" length="10" not-null="true" />
+        </property>
+        <set name="cpus" table="cpu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idempleado" not-null="true">
+                    <comment>Resguardante</comment>
+                </column>
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Cpu" />
+        </set>
+        <set name="nobreaks" table="nobreak" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idempleado" not-null="true">
+                    <comment>Resguardante</comment>
+                </column>
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Nobreak" />
+        </set>
+        <set name="monitors" table="monitor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idempleado" not-null="true">
+                    <comment>Resguardante</comment>
+                </column>
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Monitor" />
+        </set>
+        <set name="computadoras" table="computadora" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idempleado" not-null="true" />
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Computadora" />
+        </set>
+    </class>
+</hibernate-mapping>

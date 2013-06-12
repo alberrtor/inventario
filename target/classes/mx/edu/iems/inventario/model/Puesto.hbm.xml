@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2013 11:10:50 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="mx.edu.iems.inventario.model.Puesto" table="puesto" schema="public">
+        <id name="idpuesto" type="int">
+            <column name="idpuesto" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="area" class="mx.edu.iems.inventario.model.Area" fetch="select">
+            <column name="idarea" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="descripcion" not-null="true" />
+        </property>
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpuesto" not-null="true" />
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Empleado" />
+        </set>
+    </class>
+</hibernate-mapping>

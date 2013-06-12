@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2013 11:10:50 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="mx.edu.iems.inventario.model.Tipocpu" table="tipocpu" schema="public">
+        <id name="idtipocpu" type="int">
+            <column name="idtipocpu" />
+            <generator class="assigned" />
+        </id>
+        <property name="marca" type="string">
+            <column name="marca" length="50" not-null="true" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="modelo" length="50" not-null="true" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="500" not-null="true" />
+        </property>
+        <set name="cpus" table="cpu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtipocpu" not-null="true">
+                    <comment>CPU, NOBREAK, MONITOR, ETC..</comment>
+                </column>
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Cpu" />
+        </set>
+    </class>
+</hibernate-mapping>

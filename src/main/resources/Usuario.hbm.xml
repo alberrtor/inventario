@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2013 11:10:50 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="mx.edu.iems.inventario.model.Usuario" table="usuario" schema="public">
+        <id name="idusuario" type="int">
+            <column name="idusuario" />
+            <generator class="assigned" />
+        </id>
+        <property name="login" type="string">
+            <column name="login" length="30" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="100" not-null="true" />
+        </property>
+        <property name="esadministrador" type="boolean">
+            <column name="esadministrador" not-null="true" />
+        </property>
+        <set name="cpus" table="cpu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idusuario" not-null="true">
+                    <comment>Usuario Alta</comment>
+                </column>
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Cpu" />
+        </set>
+        <set name="monitors" table="monitor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idusuario" not-null="true">
+                    <comment>Usuario Alta</comment>
+                </column>
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Monitor" />
+        </set>
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idusuario" not-null="true">
+                    <comment>Usuario Alta</comment>
+                </column>
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Empleado" />
+        </set>
+        <set name="computadoras" table="computadora" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idusuario" not-null="true" />
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Computadora" />
+        </set>
+        <set name="nobreaks" table="nobreak" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idusuario" not-null="true">
+                    <comment>Usuario alta</comment>
+                </column>
+            </key>
+            <one-to-many class="mx.edu.iems.inventario.model.Nobreak" />
+        </set>
+    </class>
+</hibernate-mapping>
