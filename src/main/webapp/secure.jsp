@@ -29,7 +29,7 @@
 	<div class="row">
 		<!-- Contenido -->
 		<div class="span9">
-		<jsp:include page="commons/pruebas.jsp" />
+		aqui va el contenido principal
 		</div>
 		<!-- menu izquierdo -->
 		<div class="span3">
