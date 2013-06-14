@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="jquery/jquery-1.10.0.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="style.css">
+
+<script>
+	$(document).ready(function() {
+		$("#fadeout").click(function(event) {
+			$("#box_animate").fadeOut(2000);
+			event.preventDefault();
+		});
+
+		$("#fadein").click(function(event) {
+			$("#box_animate").fadeIn(2000)
+			event.preventDefault();
+		});
+
+		$("#fadeto").click(function(event) {
+			$("#box_animate").fadeTo(2000, 0.5)
+			event.preventDefault();
+		});
+
+	});
+</script>
+</head>
+<body>
+	<div id="box_animate"></div>
+	<div id="fadeout">
+		<a href="/">fadeOut</a>
+	</div>
+	<div id="fadein">
+		<a href="/">fadeIn</a>
+	</div>
+	<div id="fadeto">
+		<a href="/">fadeTo</a>
+	</div>
+</body>
+</html>

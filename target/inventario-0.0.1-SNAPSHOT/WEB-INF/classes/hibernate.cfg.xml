@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="inventario">
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">kylix</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/inventario</property>
+        <property name="hibernate.connection.username">kylix</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        
+        <mapping resource="mx/edu/iems/inventario/model/Tipomonitor.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Tiponobreak.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Monitor.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Area.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Nobreak.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Cpu.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Ubicacion.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Usuario.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Computadora.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Estadoequipo.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Empleado.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Puesto.hbm.xml" />
+        <mapping resource="mx/edu/iems/inventario/model/Tipocpu.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
