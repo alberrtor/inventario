@@ -27,8 +27,7 @@ public abstract class GenericDao<T, ID extends Serializable> extends HibernateDa
 	}
 
 	public void update(T entidad) throws HibernateException {
-		getHibernateTemplate().update(entidad);
-		
+		getHibernateTemplate().update(entidad);		
 	}
 
 	public void delete(T entidad) throws HibernateException {

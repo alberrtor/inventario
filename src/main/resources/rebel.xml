@@ -4,6 +4,8 @@
 	<classpath>
 		<dir name="/home/alberto/development/eclipse/workspace/inventario/target/classes">
 		</dir>
+		<dir name="/home/alberto/development/eclipse/workspace/inventario/target/test-classes">
+		</dir>
 	</classpath>
 
 </application>

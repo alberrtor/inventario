@@ -21,7 +21,16 @@
 		</action>
 		<action name="login" class="autentificaAction">
 			<result name="success">secure.jsp</result>
-			<result name="none">login.jsp</result>
+			<result name="none">index.jsp</result>
+		</action>
+		
+		
+		<action name="guardaUsuario" class="guardaUsuarioAction">
+			<result name="success" type="json" />
+			
+		</action>
+		<action name="listarUsuarios" class="listarUsuariosAction">
+			<result name="success" type="json" />
 		</action>
   </package>
   

@@ -5,4 +5,7 @@
 <beans>
 	<bean id="areaAction" class="mx.edu.iems.inventario.actions.AreaAction" />
 	<bean id="autentificaAction" class="mx.edu.iems.inventario.actions.AutentificaAction" />
+	
+	<bean id="guardaUsuarioAction" class="mx.edu.iems.inventario.actions.usuario.GuardaUsuarioAction" />
+	<bean id="listarUsuariosAction" class="mx.edu.iems.inventario.actions.usuario.ListarUsuariosAction" />
 </beans>

@@ -6,7 +6,7 @@
     <class name="mx.edu.iems.inventario.model.Usuario" table="usuario" schema="public">
         <id name="idusuario" type="int">
             <column name="idusuario" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <property name="login" type="string">
             <column name="login" length="30" not-null="true" />

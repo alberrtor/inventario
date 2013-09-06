@@ -39,24 +39,6 @@
 		</div>
 	</form>
 	<p>${mensaje}</p>
-	
-<script type="text/javascript">
-/*
-$(document).ready(function() {
-  $("#accesar").click(function() {
-    $.ajax({
-      type: 'GET',
-      url: 'login',
-      data: $("#frmLogin").serialize(),
-      dataType: 'html',
-      success: function(data) {
-    	  $.get("secure.jsp");
-      }
-    });
-    return false;
-  });
-});
-*/
-</script>
+
 </body>
 </html>

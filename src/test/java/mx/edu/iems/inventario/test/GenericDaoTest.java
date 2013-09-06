@@ -1,10 +1,4 @@
-/*package mx.edu.iems.inventario.test;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
+package mx.edu.iems.inventario.test;
 
 import mx.edu.iems.inventario.dao.AreaDao;
 import mx.edu.iems.inventario.model.Area;
@@ -35,4 +29,4 @@ public class GenericDaoTest extends AbstractJUnit4SpringContextTests{
 		areaDao.save(area);
 		
 	}
-}*/
+}

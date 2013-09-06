@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,30 +14,36 @@
 	media="screen">
 <script src="jquery/jquery-1.10.0.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/inventario.js"></script>
 
 </head>
 <body>
 
-<div class="container">
-	<s:textfield key="user" />
-	<div class="row">
-		<!-- Encabezado -->
-		<div class="span12">
-			<jsp:include page="commons/menutop.jsp" />
-		</div>
-	</div>
+	<div class="container">
 
-	<div class="row">
-		<!-- Contenido -->
-		<div class="span9">
-		aqui va el contenido principal
+		<div class="row">
+			<!-- Encabezado -->
+			<div class="span12">
+				<jsp:include page="commons/menutop.jsp" />
+			</div>
 		</div>
-		<!-- menu izquierdo -->
-		<div class="span3">
-			<jsp:include page="commons/menuright.jsp" />
+
+		<div class="row">
+			<!-- Contenido -->
+			<div class="span9">
+				
+				<div id="principal">
+					${mensajeUsuario}
+					
+				</div>
+			
+			</div>
+			<!-- menu izquierdo -->
+			<div class="span3">
+				<jsp:include page="commons/menuright.jsp" />
+			</div>
 		</div>
 	</div>
-</div>
 
 </body>
 </html>

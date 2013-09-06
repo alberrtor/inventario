@@ -65,7 +65,8 @@ public class AutentificaAction extends ActionSupport {
 			return SUCCESS;
 		}else{
 			log.debug("Usuario incorrecto");
-			mensaje="Usuario o password incorrecto";
+			mensaje = "Usuario o password incorrecto";
+			
 			return NONE;
 		}
 	}
