@@ -48,27 +48,3 @@
 	<sjg:gridColumn name="password" align="left" index="password"
 		editable="true" edittype="text" title="Password" sortable="true" />
 </sjg:grid>
-<br>
-
-<button id="btnAltaUsuario" class="btn">Guardar Usuario</button>
-
-
-
-<sj:dialog id="usuariosx" title="Alta Usuario" autoOpen="false"
-	modal="true" width="400" />
-
-<s:url var="empurl" action="employees-detail" />
-
-<script type="text/javascript">
-$('#btnAltaUsuario').click(function() {
-	$('#principal').html('');
-	$.ajax({
-		url : 'altaUsuario.jsp',
-		dataType : 'html',
-		type : 'GET',
-		success : function(data) {
-			$('#principal').html(data);
-		}
-	});
-});
-</script>
