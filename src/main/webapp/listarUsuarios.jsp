@@ -47,4 +47,8 @@
 		editable="true" edittype="text" title="Login" sortable="true"  />
 	<sjg:gridColumn name="password" align="left" index="password"
 		editable="true" edittype="text" title="Password" sortable="true" />
+	<sjg:gridColumn name="esadministrador" align="left" index="esadministrador"
+		editable="true" title="Es administrador" sortable="true" 
+		edittype="select" editoptions="{value:'SI:SI;NO:NO;'}"
+		/>
 </sjg:grid>

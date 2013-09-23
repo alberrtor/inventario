@@ -21,9 +21,9 @@
 	<br>
 	<form id="frmLogin" class="form-horizontal" action="login" method="post">
 		<div class="control-group">
-			<label class="control-label" for="usuario">Usuario</label>
+			<label class="control-label" for="login">Login</label>
 			<div class="controls">
-				<input type="text" name="usuario" id="usuario" placeholder="Escribe tu usuario">
+				<input type="text" name="login" id="login" placeholder="Escribe tu usuario">
 			</div>
 		</div>
 		<div class="control-group">

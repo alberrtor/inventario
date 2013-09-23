@@ -2,6 +2,18 @@ package mx.edu.iems.inventario.dao;
 
 import java.util.List;
 
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
+
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
+
 import mx.edu.iems.inventario.model.Area;
 import mx.edu.iems.inventario.model.Usuario;
 
@@ -20,4 +32,6 @@ public class UsuarioDao extends GenericDao<Usuario, Integer>{
 		else
 			return null;
 	}
+
+	
 }

@@ -24,6 +24,9 @@
 			<result name="none">index.jsp</result>
 		</action>
 		
+		<action name="logout" class="logoutAction">
+			<result name="success">index.jsp</result>
+		</action>
 		
 		<action name="guardaUsuario" class="guardaUsuarioAction">
 			<result name="success" type="json" />

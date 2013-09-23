@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+<%@ taglib prefix="sb" uri="/struts-bootstrap-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,7 +20,6 @@
 <body>
 
 	<div class="container">
-
 		<div class="row">
 			<!-- Encabezado -->
 			<div class="span12">
@@ -29,18 +28,18 @@
 		</div>
 
 		<div class="row">
-			<!-- Contenido -->
-			<div class="span9">
-				
-				<div id="principal">
-					${mensajeUsuario}
-					
-				</div>
-			
+			<!-- menu administrador -->
+			<div class="span12">
+				<s:if test="%{usuario.esadministrador}">
+					<jsp:include page="commons/menutop2.jsp" />
+				</s:if>
 			</div>
-			<!-- menu izquierdo -->
-			<div class="span3">
-				<jsp:include page="commons/menuright.jsp" />
+		</div>
+
+		<div class="row">
+			<!-- Contenido -->
+			<div class="span12">
+				<div id="principal">${mensajeUsuario}</div>
 			</div>
 		</div>
 	</div>

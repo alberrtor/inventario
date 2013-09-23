@@ -14,20 +14,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GuardaUsuarioAction extends ActionSupport {
-	private static final Logger log = LoggerFactory.getLogger(GuardaUsuarioAction.class);
+	private static final Logger log = LoggerFactory
+			.getLogger(GuardaUsuarioAction.class);
 
 	private String oper;
 	private String id;
 	private String login;
 	private String password;
-	private String esadmin;
+	private String esadministrador;
 	private String mensajeUsuario;
 
 	// Propiedad que se cargara en el contexto de spring
 	@Autowired
 	private UsuarioService usuarioService;
 
-	
 	public String getOper() {
 		return oper;
 	}
@@ -35,7 +35,7 @@ public class GuardaUsuarioAction extends ActionSupport {
 	public void setOper(String oper) {
 		this.oper = oper;
 	}
-	
+
 	public String getMensajeUsuario() {
 		return mensajeUsuario;
 	}
@@ -60,12 +60,12 @@ public class GuardaUsuarioAction extends ActionSupport {
 		this.password = password;
 	}
 
-	public String getEsadmin() {
-		return esadmin;
+	public String getEsadministrador() {
+		return esadministrador;
 	}
 
-	public void setEsadmin(String esadmin) {
-		this.esadmin = esadmin;
+	public void setEsadministrador(String esadministrador) {
+		this.esadministrador = esadministrador;
 	}
 
 	public UsuarioService getUsuarioService() {
@@ -76,70 +76,6 @@ public class GuardaUsuarioAction extends ActionSupport {
 		this.usuarioService = usuarioService;
 	}
 
-	/**
-	 * Método por que se ejecuta por default cuando se llama el action
-	 * autentificaUsuario
-	 */
-	public String execute() {
-		
-		  Usuario u;
-		    if (oper.equalsIgnoreCase("add")){
-		    	u = new Usuario();
-		    	u.setLogin(login);
-				u.setPassword(EncriptaService.getPasswordEncripted(password));
-				//if (esadmin.equals("") || esadmin.equals("No"))
-				//	u.setEsadministrador(false);
-				//else
-					u.setEsadministrador(true);
-				usuarioService.insertar(u);
-				log.info("guardado");
-		    }else if (oper.equalsIgnoreCase("edit"))
-		    {
-		        log.debug("Edit Customer");
-		        u = new Usuario();
-		        u.setIdusuario(Integer.parseInt(id));
-		        u.setLogin(login);
-		        u.setPassword(password);
-		        u.setEsadministrador(true);
-		        usuarioService.actualizar(u);
-		      }else if (oper.equalsIgnoreCase("del")){
-		    	  log.debug("Delete Customer");
-			       u = new Usuario();
-			       u = new Usuario();
-			        u.setIdusuario(Integer.parseInt(id));
-			        u.setLogin(login);
-			        u.setPassword(password);
-			        usuarioService.eliminar(u);
-		         
-		        }
-		      
-
-		      
-		      
-
-/*
-		System.out.println("ejecutar");
-	
-		if (!login.equals("") || !password.equals("")) {
-			Usuario u = new Usuario();
-			u.setLogin(login);
-			u.setPassword(EncriptaService.getPasswordEncripted(password));
-			if (esadmin.equals("") || esadmin.equals("No"))
-				u.setEsadministrador(false);
-			else
-				u.setEsadministrador(true);
-
-			log.info("entro");
-			usuarioService.insertar(u);
-			mensajeUsuario = "Good!, usuario guardado";
-			
-		} else
-			mensajeUsuario = "Ups!, datos invalidos";
-*/
-		return SUCCESS;
-
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -147,5 +83,50 @@ public class GuardaUsuarioAction extends ActionSupport {
 	public void setId(String id) {
 		this.id = id;
 	}
-}
+	
+	
+	/**
+	 * Método por que se ejecuta por default cuando se llama el action
+	 * autentificaUsuario
+	 */
+	public String execute() {
 
+		Usuario u;
+		if (oper.equalsIgnoreCase("add")) {
+			u = new Usuario();
+			u.setLogin(login);
+			u.setPassword(EncriptaService.getPasswordEncripted(password));
+			
+			if (esadministrador.equals("SI"))
+				u.setEsadministrador(true);
+			else
+				u.setEsadministrador(false);
+			
+			usuarioService.insertar(u);		
+			log.info("!Usuario: " + login + " guardado!");
+		} else if (oper.equalsIgnoreCase("edit")) {
+			log.debug("Edit Customer");
+			u = new Usuario();
+			u.setIdusuario(Integer.parseInt(id));
+			u.setLogin(login);
+			u.setPassword(EncriptaService.getPasswordEncripted(password));
+			
+			if (esadministrador.equals("SI"))
+				u.setEsadministrador(true);
+			else
+				u.setEsadministrador(false);
+			
+			usuarioService.actualizar(u);
+			log.info("!Usuario: " + login + " editado!");
+		} else if (oper.equalsIgnoreCase("del")) {
+			log.debug("Delete Customer");
+			u = usuarioService.findById(Integer.parseInt(id));
+			usuarioService.eliminar(u);
+			
+			log.info("!Usuario: " + u.getLogin() + " eliminado!");
+		}
+
+		return SUCCESS;
+
+	}
+}

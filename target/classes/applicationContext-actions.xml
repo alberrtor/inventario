@@ -4,7 +4,8 @@
 
 <beans>
 	<bean id="areaAction" class="mx.edu.iems.inventario.actions.AreaAction" />
-	<bean id="autentificaAction" class="mx.edu.iems.inventario.actions.AutentificaAction" />
+	<bean id="autentificaAction" class="mx.edu.iems.inventario.actions.login.AutentificaAction" />
+	<bean id="logoutAction" class="mx.edu.iems.inventario.actions.login.LogoutAction" />
 	
 	<bean id="guardaUsuarioAction" class="mx.edu.iems.inventario.actions.usuario.GuardaUsuarioAction" />
 	<bean id="listarUsuariosAction" class="mx.edu.iems.inventario.actions.usuario.ListarUsuariosAction" />
