@@ -20,13 +20,13 @@
 	rowList="10,20,30"
 	autowidth="true"
 	navigator="true"
-	navigatorSearch="true"
+	
 	
 	navigatorAdd="true"
 	navigatorEdit="true"
 	navigatorDelete="true" 
 	navigatorRefresh="true"
-	navigatorSearch="false"
+	navigatorSearch="true"
 	navigatorView="false" 
 	viewrecords="false"
 	
@@ -43,7 +43,7 @@
 	>
 
 	<sjg:gridColumn name="idusuario"  index="idusuario" search="false" key="true"
-	 title="Id Usuario" sortable="true" editable="false" searchoptions="{sopt:['eq','lt','gt']}" />
+	 title="Id Usuario" sortable="true" editable="false" searchoptions="{sopt:['eq','lt','gt']}"/>
 	<sjg:gridColumn name="login" align="left" index="login"
 		editable="true" edittype="text" title="Login" sortable="true"  />
 	<sjg:gridColumn name="password" align="left" index="password"

@@ -7,6 +7,9 @@
 	<bean id="autentificaAction" class="mx.edu.iems.inventario.actions.login.AutentificaAction" />
 	<bean id="logoutAction" class="mx.edu.iems.inventario.actions.login.LogoutAction" />
 	
+	<bean id="guardaAreaAction" class="mx.edu.iems.inventario.actions.area.GuardaAreaAction" />
+	<bean id="listarAreasAction" class="mx.edu.iems.inventario.actions.area.ListarAreasAction" />
+	
 	<bean id="guardaUsuarioAction" class="mx.edu.iems.inventario.actions.usuario.GuardaUsuarioAction" />
 	<bean id="listarUsuariosAction" class="mx.edu.iems.inventario.actions.usuario.ListarUsuariosAction" />
 </beans>

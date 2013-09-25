@@ -14,9 +14,17 @@ $(document).ready(function() {
 
 	$('#areas').click(function() {
 		$('#principal').html('');
+		$.ajax({
+			url : 'listarAreas.jsp',
+			dataType : 'html',
+			type : 'GET',
+			success : function(data) {
+				$('#principal').html(data);
+			}
+		});
 	});
 
-	
+	//Ya no se ocupa se deja como ejemplo
 	$('#btnAltaUsuario').click(function() {
 		$('#principal').html('');
 		$.ajax({

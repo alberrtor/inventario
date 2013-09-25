@@ -35,6 +35,13 @@
 		<action name="listarUsuarios" class="listarUsuariosAction">
 			<result name="success" type="json" />
 		</action>
+		<action name="guardaArea" class="guardaAreaAction">
+			<result name="success" type="json" />
+			
+		</action>
+		<action name="listarAreas" class="listarAreasAction">
+			<result name="success" type="json"/>
+		</action>
   </package>
   
  <!-- <package name="strutsactions" namespace="/" extends="json-default" /> -->

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mx.edu.iems.inventario.model.Area;
+import mx.edu.iems.inventario.model.Usuario;
 import mx.edu.iems.inventario.util.HibernateUtil;
 
 import org.hibernate.HibernateException;
@@ -24,4 +25,14 @@ public class AreaDao extends GenericDao<Area, Integer>{
 		
 	}
 
+	public Area buscarAreaPorDescripcion(String descripcion) {
+		String hql = "FROM Area WHERE login like '" + descripcion + "%'";
+		List<Area> area = getHibernateTemplate().find(hql);
+		
+		if(!area.isEmpty())
+			return area.iterator().next();
+		else
+			return null;
+	}
+	
 }
