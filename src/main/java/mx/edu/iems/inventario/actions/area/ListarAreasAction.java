@@ -163,9 +163,9 @@ public class ListarAreasAction extends ActionSupport {
 	    log.debug("Records " + records);		
 
 	   //Your logic to search and select the required data.
-	    areas = areaService.findByCriteria(criteria, from, rows);
+	    //areas = areaService.findByCriteria(criteria, from, rows);
 		
-	    //areas = areaService.listar();
+	    areas = areaService.listar();
 	    		
 		if(to > records) to = records;
 		

@@ -9,7 +9,11 @@
 	
 	<bean id="guardaAreaAction" class="mx.edu.iems.inventario.actions.area.GuardaAreaAction" />
 	<bean id="listarAreasAction" class="mx.edu.iems.inventario.actions.area.ListarAreasAction" />
+	<bean id="comboAreasAction" class="mx.edu.iems.inventario.actions.area.ComboAreasAction" />
 	
 	<bean id="guardaUsuarioAction" class="mx.edu.iems.inventario.actions.usuario.GuardaUsuarioAction" />
 	<bean id="listarUsuariosAction" class="mx.edu.iems.inventario.actions.usuario.ListarUsuariosAction" />
+	
+	<bean id="guardaPuestoAction" class="mx.edu.iems.inventario.actions.puesto.GuardaPuestoAction" />
+	<bean id="listarPuestosAction" class="mx.edu.iems.inventario.actions.puesto.ListarPuestosAction" />
 </beans>

@@ -28,6 +28,10 @@
 	</property>
 </bean>
 
+<bean id="puestoDao" class="mx.edu.iems.inventario.dao.PuestoDao">
+	<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+
 <bean id="areaDao" class="mx.edu.iems.inventario.dao.AreaDao">
 	<property name="sessionFactory" ref="sessionFactory" />
 </bean>

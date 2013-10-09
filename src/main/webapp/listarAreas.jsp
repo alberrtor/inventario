@@ -15,7 +15,7 @@
 	editurl="%{editurl}"
 	gridModel="areas" 
 	pager="true" 
-	rowNum="10" 
+	rowNum="30" 
 	rownumbers="true"
 	rowList="10,20,30"
 	autowidth="true"

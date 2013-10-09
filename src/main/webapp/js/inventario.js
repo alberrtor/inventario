@@ -24,6 +24,18 @@ $(document).ready(function() {
 		});
 	});
 
+	$('#puest').click(function() {
+		$('#principal').html('');
+		$.ajax({
+			url : 'listarPuestos.jsp',
+			dataType : 'html',
+			type : 'GET',
+			success : function(data) {
+				$('#principal').html(data);
+			}
+		});
+	});
+	
 	//Ya no se ocupa se deja como ejemplo
 	$('#btnAltaUsuario').click(function() {
 		$('#principal').html('');

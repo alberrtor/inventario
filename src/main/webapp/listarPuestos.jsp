@@ -3,17 +3,26 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
+
+
+
+
 <sj:head jqueryui="true" jquerytheme="redmond" />
 
-<s:url id="consultaUsuarios" action="listarUsuarios" />
-<s:url id="editurl" action="guardaUsuario" />
+
+<s:url id="consultaPuestos" action="listarPuestos" />
+<s:url id="editurl" action="guardaPuesto" />
+<s:url id="comboareas" action="comboAreas" />
+
+
+
 <sjg:grid 
-	id="gridusuarios" 
-	caption="Usuarios" 
+	id="gridpuestos" 
+	caption="Puestos" 
 	dataType="json"
-	href="%{consultaUsuarios}"
+	href="%{consultaPuestos}"
 	editurl="%{editurl}"
-	gridModel="usuarios" 
+	gridModel="puestos" 
 	pager="true" 
 	rowNum="30" 
 	rownumbers="true"
@@ -42,14 +51,21 @@
 	
 	>
 
-	<sjg:gridColumn name="idusuario"  index="idusuario" search="false" key="true"
-	 title="Id Usuario" sortable="true" editable="false" searchoptions="{sopt:['eq','lt','gt']}"/>
-	<sjg:gridColumn name="login" align="left" index="login"
-		editable="true" edittype="text" title="Login" sortable="true"  />
-	<sjg:gridColumn name="password" align="left" index="password"
-		editable="true" edittype="text" title="Password" sortable="true" />
-	<sjg:gridColumn name="esadministrador" align="left" index="esadministrador"
+	<sjg:gridColumn name="idpuesto"  index="idpuesto" search="false" key="true"
+	 title="Id Puesto" sortable="true" editable="false" searchoptions="{sopt:['eq','lt','gt']}"/>
+	<sjg:gridColumn name="descripcion" align="left" index="descripcion"
+		editable="true" edittype="text" title="Descripcion" sortable="true"  />
+   <sjg:gridColumn name="area.idarea" align="left" index="area.idarea"
+		editable="true" edittype="select" title="Area" sortable="true"  editoptions="%{comboareas}" /> 
+ 
+
+ <%-- <sjg:gridColumn name="esadministrador" align="left" index="esadministrador"
 		editable="true" title="Es administrador" sortable="true" 
 		edittype="select" editoptions="{value:'SI:SI;NO:NO;'}"
-		/>
-</sjg:grid>
+		/>--%>
+		
+	</sjg:grid>
+	
+	   
+	
+	

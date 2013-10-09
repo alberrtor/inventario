@@ -1,9 +1,15 @@
-package mx.edu.iems.inventario.actions.usuario;
+package mx.edu.iems.inventario.actions.puesto;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import mx.edu.iems.inventario.dao.AreaDao;
+import mx.edu.iems.inventario.dao.PuestoDao;
+import mx.edu.iems.inventario.model.Area;
+import mx.edu.iems.inventario.model.Puesto;
 import mx.edu.iems.inventario.model.Usuario;
+import mx.edu.iems.inventario.services.AreaService;
+import mx.edu.iems.inventario.services.PuestoService;
 import mx.edu.iems.inventario.services.EncriptaService;
 import mx.edu.iems.inventario.services.UsuarioService;
 
@@ -15,10 +21,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ListarUsuariosAction extends ActionSupport {
-	private static final Logger log = LoggerFactory.getLogger(AreaDao.class);
-	private List<Usuario> usuarios;
-
+public class ListarPuestosAction extends ActionSupport {
+	private static final Logger log = LoggerFactory.getLogger(ListarPuestosAction.class);
+	private List<Puesto> puestos;
+	private String areascombo;
+	
 	//Get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
 	private Integer rows = 0;
@@ -50,10 +57,17 @@ public class ListarUsuariosAction extends ActionSupport {
 
 	// Propiedad que se cargara en el contexto de spring
 	@Autowired
-	private UsuarioService usuarioService;
+	private PuestoService puestoService;
 
-	public List<Usuario> getUsuarios() {
-		return usuarios;
+	@Autowired
+	private AreaService areaService;
+	
+	public List<Puesto> getPuestos() {
+		return puestos;
+	}
+
+	public void setPuestos(List<Puesto> puestos) {
+		this.puestos = puestos;
 	}
 
 	public Integer getRows() {
@@ -128,16 +142,27 @@ public class ListarUsuariosAction extends ActionSupport {
 		this.records = records;
 	}
 
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
+	public PuestoService getPuestoService() {
+		return puestoService;
 	}
 
-	public UsuarioService getUsuarioService() {
-		return usuarioService;
+	public void setPuestoService(PuestoService puestoService) {
+		this.puestoService = puestoService;
 	}
 
-	public void setUsuarioService(UsuarioService usuarioService) {
-		this.usuarioService = usuarioService;
+	
+	public String getAreascombo() {
+		return areascombo;
+	}
+
+	public void setAreascombo(String areascombo) {
+		this.areascombo = areascombo;
+	}
+
+	
+
+	public void setAreaService(AreaService areaService) {
+		this.areaService = areaService;
 	}
 
 	/**
@@ -149,10 +174,10 @@ public class ListarUsuariosAction extends ActionSupport {
 		int to = (rows * page);
 	    int from = to - rows;
 
-	    DetachedCriteria criteria = DetachedCriteria.forClass(Usuario.class);
+	    DetachedCriteria criteria = DetachedCriteria.forClass(Puesto.class);
 	    
 	    //Count Rows (select count(*) from custumer)
-	    records = usuarioService.countByCriteria(criteria);
+	    records = puestoService.countByCriteria(criteria);
 	    
 	    // Reset count Projection
 	    criteria.setProjection(null);
@@ -161,15 +186,34 @@ public class ListarUsuariosAction extends ActionSupport {
 	    log.debug("Records " + records);		
 
 	   //Your logic to search and select the required data.
-	    //usuarios = usuarioService.findByCriteria(criteria, from, rows);
-	  usuarios = usuarioService.listar();
+	    //puestos = puestoService.findByCriteria(criteria, from, rows);
+		
+	    puestos = puestoService.listar();
 	    
+	    List<Area> areas = areaService.listar();
+		StringBuilder areascombo2 = new StringBuilder();
+
+		areascombo2.append("{value:'");
+		for (Area a : areas) {
+
+			areascombo2.append(Integer.toString(a.getIdarea()));
+			areascombo2.append(":");
+			areascombo2.append(a.getDescripcion());
+			areascombo2.append(";");
+			
+
+		}
+
+		areascombo2.append("'}");
+		areascombo = areascombo2.toString();
+		
 	    
+	    areascombo = "{value:'SI:SI;NO:NO;'}";
+	    log.debug(areascombo);
 		if(to > records) to = records;
 		
 		//calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
-		
 		
 		return SUCCESS;
 	}

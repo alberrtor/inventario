@@ -42,6 +42,18 @@
 		<action name="listarAreas" class="listarAreasAction">
 			<result name="success" type="json"/>
 		</action>
+		
+		<action name="comboAreas" class="comboAreasAction">
+			<result name="success" type="json"/>
+		</action>
+		
+		<action name="guardaPuesto" class="guardaPuestoAction">
+			<result name="success" type="json" />
+			
+		</action>
+		<action name="listarPuestos" class="listarPuestosAction">
+			<result name="success" type="json"/>
+		</action>
   </package>
   
  <!-- <package name="strutsactions" namespace="/" extends="json-default" /> -->

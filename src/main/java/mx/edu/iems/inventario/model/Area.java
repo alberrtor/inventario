@@ -52,4 +52,9 @@ public class Area implements java.io.Serializable {
 		this.puestos = puestos;
 	}
 
+	@Override
+	public String toString() {
+		return descripcion;
+	}
+
 }

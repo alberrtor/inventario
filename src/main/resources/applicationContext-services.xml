@@ -6,6 +6,8 @@
 
 <beans>
 
+	<bean id="puestoService" class="mx.edu.iems.inventario.services.PuestoService" />
+
 	<bean id="areaService" class="mx.edu.iems.inventario.services.AreaService" />
 
 	<bean id="usuarioService" class="mx.edu.iems.inventario.services.UsuarioService" />
