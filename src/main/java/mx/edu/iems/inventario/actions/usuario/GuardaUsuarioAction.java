@@ -21,8 +21,7 @@ public class GuardaUsuarioAction extends ActionSupport {
 	private String id;
 	private String login;
 	private String password;
-	private String esadministrador;
-	private String mensajeUsuario;
+	private String esadministrador;	
 
 	// Propiedad que se cargara en el contexto de spring
 	@Autowired
@@ -34,15 +33,7 @@ public class GuardaUsuarioAction extends ActionSupport {
 
 	public void setOper(String oper) {
 		this.oper = oper;
-	}
-
-	public String getMensajeUsuario() {
-		return mensajeUsuario;
-	}
-
-	public void setMensajeUsuario(String mensajeUsuario) {
-		this.mensajeUsuario = mensajeUsuario;
-	}
+	}	
 
 	public String getLogin() {
 		return login;

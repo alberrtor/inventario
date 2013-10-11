@@ -2,12 +2,8 @@ package mx.edu.iems.inventario.actions.area;
 
 import java.util.List;
 
-import mx.edu.iems.inventario.dao.AreaDao;
 import mx.edu.iems.inventario.model.Area;
-import mx.edu.iems.inventario.model.Usuario;
 import mx.edu.iems.inventario.services.AreaService;
-import mx.edu.iems.inventario.services.EncriptaService;
-import mx.edu.iems.inventario.services.UsuarioService;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.DetachedCriteria;
@@ -15,12 +11,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ListarAreasAction extends ActionSupport {
 	private static final Logger log = LoggerFactory.getLogger(ListarAreasAction.class);
 	private List<Area> areas;
-
 	//Get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
 	private Integer rows = 0;
@@ -140,7 +136,7 @@ public class ListarAreasAction extends ActionSupport {
 
 	public void setAreaService(AreaService areaService) {
 		this.areaService = areaService;
-	}
+	}	
 
 	/**
 	 * Método que se ejecuta por default cuando se llama el action
@@ -165,7 +161,7 @@ public class ListarAreasAction extends ActionSupport {
 	   //Your logic to search and select the required data.
 	    //areas = areaService.findByCriteria(criteria, from, rows);
 		
-	    areas = areaService.listar();
+	    areas = areaService.listar();	    	 
 	    		
 		if(to > records) to = records;
 		

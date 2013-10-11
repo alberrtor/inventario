@@ -41,7 +41,7 @@ public class AreaService {
 	public Area findById(Integer id){
 		return areaDao.get(id);
 	}
-	public Area findByLogin(String descripcion){
+	public Area findByDescripcion(String descripcion){
 		return areaDao.buscarAreaPorDescripcion(descripcion);
 	}
 	

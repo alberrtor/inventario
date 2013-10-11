@@ -22,7 +22,6 @@ public class GuardaAreaAction extends ActionSupport {
 	private String oper;
 	private String id;
 	private String descripcion;
-	private String mensajeUsuario;
 
 	// Propiedad que se cargara en el contexto de spring
 	@Autowired
@@ -50,14 +49,6 @@ public class GuardaAreaAction extends ActionSupport {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	public String getMensajeUsuario() {
-		return mensajeUsuario;
-	}
-
-	public void setMensajeUsuario(String mensajeUsuario) {
-		this.mensajeUsuario = mensajeUsuario;
 	}
 
 	public AreaService getAreaService() {

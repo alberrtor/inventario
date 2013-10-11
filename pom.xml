@@ -8,6 +8,8 @@
 	<packaging>war</packaging>
 	<name>inventario</name>
 
+	
+
 	<properties>
 		<struts2.version>2.3.7</struts2.version>
 		<struts2.jepert>3.4.0</struts2.jepert>
@@ -15,6 +17,12 @@
 	</properties>
 
 	<dependencies>
+	
+		<dependency>
+	<groupId>com.google.code.gson</groupId>
+	<artifactId>gson</artifactId>
+	<version>2.2.4</version>
+</dependency>
 		<!-- Dependencia de rich text -->
 		<dependency>
 			<groupId>com.jgeppert.struts2.jquery</groupId>

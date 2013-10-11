@@ -1,13 +1,9 @@
 package mx.edu.iems.inventario.actions.puesto;
 
-import java.util.List;
-
-import mx.edu.iems.inventario.dao.PuestoDao;
+import mx.edu.iems.inventario.model.Area;
 import mx.edu.iems.inventario.model.Puesto;
-import mx.edu.iems.inventario.model.Usuario;
+import mx.edu.iems.inventario.services.AreaService;
 import mx.edu.iems.inventario.services.PuestoService;
-import mx.edu.iems.inventario.services.EncriptaService;
-import mx.edu.iems.inventario.services.UsuarioService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,25 +18,19 @@ public class GuardaPuestoAction extends ActionSupport {
 	private String oper;
 	private String id;
 	private String descripcion;
-	private String mensajeUsuario;
-	private String areascombo;
-
+	private Area area;
+	
+	
 	// Propiedad que se cargara en el contexto de spring
 	@Autowired
 	private PuestoService puestoService;
+	@Autowired
+	private AreaService areaService;
 	
 	public String getOper() {
 		return oper;
 	}
-
-	public String getAreascombo() {
-		return areascombo;
-	}
-
-	public void setAreascombo(String areascombo) {
-		this.areascombo = areascombo;
-	}
-
+	
 	public void setOper(String oper) {
 		this.oper = oper;
 	}
@@ -61,14 +51,6 @@ public class GuardaPuestoAction extends ActionSupport {
 		this.descripcion = descripcion;
 	}
 
-	public String getMensajeUsuario() {
-		return mensajeUsuario;
-	}
-
-	public void setMensajeUsuario(String mensajeUsuario) {
-		this.mensajeUsuario = mensajeUsuario;
-	}
-
 	public PuestoService getPuestoService() {
 		return puestoService;
 	}
@@ -78,18 +60,55 @@ public class GuardaPuestoAction extends ActionSupport {
 	}
 
 	
+	public Area getArea() {
+		return area;
+	}
+
+	public void setArea(Area area) {
+		this.area = area;
+	}
+
+	public AreaService getAreaService() {
+		return areaService;
+	}
+
+	public void setAreaService(AreaService areaService) {
+		this.areaService = areaService;
+	}
+
 	/**
 	 * Método por que se ejecuta por default cuando se llama el action
 	 * autentificaUsuario
 	 */
 	public String execute() {
-
-		
-		
-		
+		Puesto p;
 		if (oper.equalsIgnoreCase("add")) {
-			areascombo = "{value:'SI:SI;NO:NO;'}";
-		}
+			p = new Puesto();
+			p.setDescripcion(descripcion);
+			
+			Area a = areaService.findByDescripcion(area.getDescripcion());
+			log.info("[* " + area.getDescripcion() + " *]");
+			p.setArea(a);
+			puestoService.insertar(p);		
+			log.info("!Puesto: " + descripcion + " guardado!");
+		} /*else if (oper.equalsIgnoreCase("edit")) {
+			log.debug("Edit Area");
+			u = new Area();
+			u.setIdarea(Integer.parseInt(id));
+			u.setDescripcion(descripcion);
+			
+			areaService.actualizar(u);
+			log.info("!Area: " + descripcion + " editado!");
+		} else if (oper.equalsIgnoreCase("del")) {
+			log.debug("Delete Area");
+			u = areaService.findById(Integer.parseInt(id));
+			areaService.eliminar(u);
+			
+			log.info("!Area: " + u.getDescripcion() + " eliminado!");
+		}*/
+
 		return SUCCESS;
+	
 	}
+		
 }

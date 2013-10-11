@@ -24,8 +24,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ListarPuestosAction extends ActionSupport {
 	private static final Logger log = LoggerFactory.getLogger(ListarPuestosAction.class);
 	private List<Puesto> puestos;
-	private String areascombo;
-	
+		
 	//Get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
 	private Integer rows = 0;
@@ -149,18 +148,7 @@ public class ListarPuestosAction extends ActionSupport {
 	public void setPuestoService(PuestoService puestoService) {
 		this.puestoService = puestoService;
 	}
-
 	
-	public String getAreascombo() {
-		return areascombo;
-	}
-
-	public void setAreascombo(String areascombo) {
-		this.areascombo = areascombo;
-	}
-
-	
-
 	public void setAreaService(AreaService areaService) {
 		this.areaService = areaService;
 	}
@@ -189,27 +177,7 @@ public class ListarPuestosAction extends ActionSupport {
 	    //puestos = puestoService.findByCriteria(criteria, from, rows);
 		
 	    puestos = puestoService.listar();
-	    
-	    List<Area> areas = areaService.listar();
-		StringBuilder areascombo2 = new StringBuilder();
-
-		areascombo2.append("{value:'");
-		for (Area a : areas) {
-
-			areascombo2.append(Integer.toString(a.getIdarea()));
-			areascombo2.append(":");
-			areascombo2.append(a.getDescripcion());
-			areascombo2.append(";");
-			
-
-		}
-
-		areascombo2.append("'}");
-		areascombo = areascombo2.toString();
-		
-	    
-	    areascombo = "{value:'SI:SI;NO:NO;'}";
-	    log.debug(areascombo);
+	    	   	   	 
 		if(to > records) to = records;
 		
 		//calculate the total pages for the query
@@ -217,4 +185,5 @@ public class ListarPuestosAction extends ActionSupport {
 		
 		return SUCCESS;
 	}
+		
 }

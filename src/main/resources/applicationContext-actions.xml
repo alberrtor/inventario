@@ -3,7 +3,7 @@
 	"http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="areaAction" class="mx.edu.iems.inventario.actions.AreaAction" />
+	
 	<bean id="autentificaAction" class="mx.edu.iems.inventario.actions.login.AutentificaAction" />
 	<bean id="logoutAction" class="mx.edu.iems.inventario.actions.login.LogoutAction" />
 	

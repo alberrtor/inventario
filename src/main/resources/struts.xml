@@ -16,9 +16,7 @@
   <!-- Se debe especificar un nombre paquete para agregarlos en los POJOS -->
   <package name="strutsactions" namespace="/" extends="json-default">
 		<!-- <action name="consultarAreas" class="mx.edu.iems.inventario.actions.AreaAction"> -->
-		<action name="consultarAreas" class="areaAction">
-			<result name="success" type="json"></result>
-		</action>
+		
 		<action name="login" class="autentificaAction">
 			<result name="success">secure.jsp</result>
 			<result name="none">index.jsp</result>
