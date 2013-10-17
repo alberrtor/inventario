@@ -39,12 +39,17 @@
 	<sjg:gridColumn name="descripcion" align="left" index="descripcion"
 		editable="true" edittype="text" title="Descripcion" sortable="true" />
 	
-
-		<sjg:gridColumn name="area.descripcion" index="area.descripcion" editable="true" edittype="select"
-					title="Banco"
+	
+	<sjg:gridColumn name="area.idarea" index="area.idarea" editable="true" edittype="select"
+				
+					
+					title="Id Area"
 					sortable="true"					
-					editoptions="{dataUrl:'%{combo}'}" 
-					/>	
+					editoptions="{dataUrl:'%{combo}'}"
+					
+					/>
+
+		<sjg:gridColumn name="area.descripcion" index="area.descripcion" editable="false" title="Area"/>	
 </sjg:grid>
 
 

@@ -6,7 +6,7 @@
     <class name="mx.edu.iems.inventario.model.Puesto" table="puesto" schema="public">
         <id name="idpuesto" type="int">
             <column name="idpuesto" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <many-to-one name="area" class="mx.edu.iems.inventario.model.Area" fetch="select">
             <column name="idarea" not-null="true" />

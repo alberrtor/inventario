@@ -86,8 +86,8 @@ public class GuardaPuestoAction extends ActionSupport {
 			p = new Puesto();
 			p.setDescripcion(descripcion);
 			
-			Area a = areaService.findByDescripcion(area.getDescripcion());
-			log.info("[* " + area.getDescripcion() + " *]");
+			Area a = areaService.findById(area.getIdarea());
+			log.info("[* " + area.getIdarea() + " *]");
 			p.setArea(a);
 			puestoService.insertar(p);		
 			log.info("!Puesto: " + descripcion + " guardado!");
